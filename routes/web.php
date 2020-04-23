@@ -43,3 +43,5 @@ Route::get("/biodata-mahasiswa/{id}/delete", "BiodataController@destroy")
 ->name("biodata.destroy");
 
 Route::get('/biodata-mahasiswa/export_excel', 'BiodataController@export_excel');
+
+Route::get('/biodata-mahasiswa/mail/send', "MailController@send");
