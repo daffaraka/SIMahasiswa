@@ -1,69 +1,20 @@
-@section('js')
-<script type="text/javascript">
+@extends("layout")
 
-      function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+@push("style")
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css"/>
+@endpush
 
-            reader.onload = function (e) {
-                $('#showgambar').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $("#inputgambar").change(function () {
-        readURL(this);
-    });
-
-</script>
-
-@stop
-@extends('layout')
-
-@section('content')
-
-    <style>
-        body {
-            background: #f8f8f6;
-        }
-
-        .datatable {
-            
-        }
-
-    </style>
+@section("content")
+    <h1 style="text-align: center;">Daftar Orang</h1>
+            <a href="/biodata-mahasiswa/create" class="btn btn-info"> + Tambah Data</a>
+            <a href="/biodata-mahasiswa/export_excel" class="btn btn-info" target="_blank">Export Excel</a>
+            <br><br>
+    {!! $html->table() !!}
 
 
-    <div class="body" style="font-family: Century Gothic;">
+@endsection
 
-        <table id="datatable" class="table table-bordered table-hover table-striped tblind">
-            <h1>Daftar Mahasiswa</h1>
-        	<a href="{{ route('biodata.create') }}" class="btn btn-info">Tambahkan</a><br><br>
-            <thead><tr>
- 	<th>Id</th>
-		<th>Name</th>
-		<th>NIM</th>
-		<th>Address</th>
-        <th style="width: 200px">Aksi</th>
-    </tr>
-            </thead>
-            <tbody>
-                @foreach($mahasiswa as $data)
-                <tr>
-  	<td>{{  $data->id }}</td>
-				<td>{{  $data->name }}</td>
-				<td>{{  $data->nim }}</td>
-				<td>{{  $data->address }}</td>
-                    <td>
-                       <a href="{{ route('biodata.show', ['id' => $data-> id]) }}" class="btn btn-success">Detail</a>
-					<a href="{{ route('biodata.edit', ['id' => $data-> id]) }}"  class="btn btn-warning">Edit</a>
-					<a onclick="return confirm('Apakah Anda Yakin ?');" href="{{ route('biodata.destroy', ['id' => $data-> id]) }}"  class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-@endsection('content')
+@push("script")
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
+    {!! $html->scripts() !!}
+@endpush

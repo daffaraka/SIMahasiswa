@@ -46,14 +46,6 @@
 				<label class="control-label">Alamat</label>
 				<textarea name="address" rows="10" class="form-control">{{ $data->address }}</textarea> 
 			</div>
-			<div class="form-group">
-				<img src="http://placehold.it/100x100" id="showgambar" style="max-width:200px;max-height:200px;float:left;" />{{ $data->photo }}
-			</div><br><br><br><br><br>
-			<div class="form-group">
-			    <label for="photo">Upload Photo</label><br>
-			    <input type="file" id="inputgambar" name="photo" value="{{ $data->photo }}">
-			  </div>
-			<div class="form-group">
 				<button class="btn btn-primary" type="submit">Simpan</button>
 				<a href="{{ route('biodata.index')}}" class="btn btn-danger">Batal</a>
 			</div>

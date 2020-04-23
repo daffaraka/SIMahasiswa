@@ -42,14 +42,6 @@
 				<label class="control-label">Alamat</label>
 				<textarea name="address" rows="10" class="form-control"></textarea> 
 			</div>
-			<div class="form-group">
-				<img src="http://placehold.it/100x100" id="showgambar" style="max-width:200px;max-height:200px;float:left;" />
-			</div><br><br><br><br><br>
-
-			<div class="form-group">
-				<label class="control-label">Foto</label>
-				<input type="file" id="inputgambar" name="photo" required="required">
-			</div>
 			
 			<div class="form-group">
 				<button class="btn btn-primary" type="submit">Simpan</button>
