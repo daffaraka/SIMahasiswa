@@ -1,32 +1,28 @@
-@section('js')
-<script type="text/javascript">
 
-      function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#showgambar').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $("#inputgambar").change(function () {
-        readURL(this);
-    });
-
-</script>
-
-@stop
-
-@extends("layout")
+@extends("layout.app")
 
 @section("content")
 
-
-		<form action="{{ route('biodata.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+ <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Tambah Mahaisswa</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Kelola Mahasiswa Ku</a></li>
+              <li class="breadcrumb-item active">Tambah Mahasiswa</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+	<form action="{{ route('biodata.store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
 
 			@csrf
 
@@ -48,4 +44,9 @@
 				<a href="{{ route('biodata.index')}}" class="btn btn-danger">Batal</a>
 			</div>
 		</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 @endsection

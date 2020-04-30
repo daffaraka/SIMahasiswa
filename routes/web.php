@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('/login-form');
+    return view('/dashboard');
 });
 Auth::routes();
 Route::resource("biodata", "BiodataController")->middleware("web");
